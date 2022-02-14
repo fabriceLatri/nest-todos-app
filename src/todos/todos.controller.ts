@@ -1,15 +1,24 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { Todo } from './schemas/TodoSchema';
-import { NewTodo } from './interfaces/NewTodo.interface';
+import { CreateTodoDto } from './dto/create-todo.dto';
+import { UpdateTodoDto } from './dto/update-todo.dto';
 
 @Controller('todos')
 export class TodosController {
   constructor(private readonly todosService: TodosService) {}
 
-  @Get(':title')
-  findOne(@Param('title') title: string): Promise<Todo | null> {
-    return this.todosService.findOne(title);
+  @Get(':id')
+  findOne(@Param('id') id: string): Promise<Todo | null> {
+    return this.todosService.findOne(id);
   }
 
   @Get()
@@ -18,7 +27,19 @@ export class TodosController {
   }
 
   @Post()
-  createTodo(@Body() newTodo: NewTodo): Promise<Todo> {
-    return this.todosService.create(newTodo);
+  createTodo(@Body() createTodoDto: CreateTodoDto): Promise<Todo | string> {
+    return this.todosService.create(createTodoDto);
+  }
+
+  @Put()
+  updateTodo(
+    @Body() todoData: { id: string; data: UpdateTodoDto },
+  ): Promise<Todo | null> {
+    return this.todosService.update(todoData.id, todoData.data);
+  }
+
+  @Delete()
+  deleteTodo(@Param('id') id: string): Promise<Todo | null> {
+    return this.todosService.delete(id);
   }
 }
