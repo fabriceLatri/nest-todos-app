@@ -37,7 +37,6 @@ export class TodosService {
 
   async delete(id: string): Promise<Todo | null> {
     const todo = await this.todoModel.findByIdAndDelete(id);
-    console.log(todo);
     return todo;
   }
 }

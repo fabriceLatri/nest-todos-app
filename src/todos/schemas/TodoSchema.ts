@@ -6,9 +6,6 @@ export type TodoDocument = Todo & Document;
 
 @Schema()
 export class Todo {
-  @Prop({ type: mongoose.Schema.Types.ObjectId })
-  _id: string;
-
   @Prop({ required: true })
   title: string;
 

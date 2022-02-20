@@ -29,7 +29,7 @@ describe('TodosController', () => {
       let todo: Todo | null;
 
       beforeEach(async () => {
-        todo = await todosController.findOne(todoStub()._id);
+        todo = await todosController.findOne(todoStub()._id as string);
       });
 
       it('then it should call todosService', () => {
@@ -92,7 +92,7 @@ describe('TodosController', () => {
 
       beforeEach(async () => {
         updateTodo = {
-          id: todoStub()._id,
+          id: todoStub()._id as string,
           data: {
             done: true,
           },
@@ -119,7 +119,7 @@ describe('TodosController', () => {
       let todo: Todo | null;
 
       beforeEach(async () => {
-        todo = await todosController.deleteTodo(todoStub()._id);
+        todo = await todosController.deleteTodo(todoStub()._id as string);
       });
 
       it('then it should call todosService', () => {

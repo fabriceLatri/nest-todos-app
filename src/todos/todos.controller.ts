@@ -38,7 +38,7 @@ export class TodosController {
     return this.todosService.update(todoData.id, todoData.data);
   }
 
-  @Delete()
+  @Delete(':id')
   deleteTodo(@Param('id') id: string): Promise<Todo | null> {
     return this.todosService.delete(id);
   }
