@@ -32,6 +32,17 @@
 $ npm install
 ```
 
+## Configuration
+
+Create a .env file with this variables
+
+```bash
+# .env file
+MONGO_URI=YOUR_MONGO_URI
+MONGO_USER=YOUR_MONGO_USERNAME
+MONGO_PASSWORD=YOUR_MONGO_PASSWORD
+```
+
 ## Running the app
 
 ```bash
