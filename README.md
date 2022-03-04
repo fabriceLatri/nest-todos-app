@@ -34,7 +34,7 @@ $ npm install
 
 ## Configuration
 
-Create a .env file with this variables
+Create a .env file at the root directory with this variables
 
 ```bash
 # .env file
