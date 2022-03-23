@@ -1,1 +1,0 @@
-{"version":3,"file":"todos.stub.js","sourceRoot":"","sources":["../../../../src/todos/test/stubs/todos.stub.ts"],"names":[],"mappings":";;;AAGO,MAAM,QAAQ,GAAG,GAAkB,EAAE;IAC1C,OAAO;QACL,GAAG,EAAE,0BAA0B;QAC/B,IAAI,EAAE,KAAK;QACX,WAAW,EAAE,UAAU;QACvB,KAAK,EAAE,MAAM;KACd,CAAC;AACJ,CAAC,CAAC;AAPW,QAAA,QAAQ,YAOnB"}
