@@ -1,18 +1,29 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { TodoItem } from '../dto/todo.dto';
 
 export type TodoDocument = Todo & Document;
 
-@Schema()
-export class Todo {
+@Schema({
+  toJSON: {
+    getters: true,
+  },
+})
+export class Todo implements TodoItem {
   @Prop({ required: true })
   title: string;
 
   @Prop({ required: false })
-  description: string;
+  url: string;
 
-  @Prop({ required: true })
-  done: boolean;
+  @Prop({
+    required: false,
+    default: false,
+  })
+  completed: boolean;
+
+  @Prop()
+  order: number;
 }
 
 export const TodoSchema = SchemaFactory.createForClass(Todo);

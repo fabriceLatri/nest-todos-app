@@ -52,12 +52,12 @@ services:
       - server-network
     ports:
       - 27017:27017
-    healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    restart: unless-stopped
+    # healthcheck:
+    #   test: echo 'db.runCommand("ping").ok' | mongo localhost:27017/test --quiet
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    # restart: unless-stopped
 volumes:
   mongodb-data:
     name: mongodb-data

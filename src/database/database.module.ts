@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import { rootCertificates } from 'tls';
+import { getConnectionToken, MongooseModule } from '@nestjs/mongoose';
+import { Connection } from 'mongoose';
+const AutoIncrementFactory = require('mongoose-sequence');
+import { Todo } from 'src/todos/schemas/TodoSchema';
+import { TodoSchema } from '../todos/schemas/TodoSchema';
 
 const url = process.env.MONGO_URL || 'localhost';
 
